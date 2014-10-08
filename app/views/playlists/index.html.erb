@@ -1,0 +1,6 @@
+<ul>
+  <% @playlists.each do |playlist| %>
+    <li><%= link_to playlist.name, "playlists/#{playlist.id}" %></li>
+  <% end %>
+</ul>
+<%= link_to 'All Videos', 'videos' %>

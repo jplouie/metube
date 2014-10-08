@@ -1,0 +1,8 @@
+<h2><%= @playlist.name %></h2>
+<ol>
+  <% @list.each do |video| %>
+    <li><%= link_to video.title, "videos/#{video.id}" %></li>
+  <% end %>
+</ol>
+<%= link_to 'Edit', "/playlists/#{@playlist.id}/edit" %><br>
+<%= link_to 'All Playlists', '/playlists' %>

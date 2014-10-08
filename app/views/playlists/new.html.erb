@@ -1,0 +1,16 @@
+<%= form_for @playlist do |f| %>
+  <% if @playlist.errors.any? %>
+    <ul>
+      <% @playlist.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  <% end %>
+
+  Playlist name: <%= f.text_field :name %><br>
+  <% @videos.each do |video| %>
+    <%= check_box_tag 'videos[]', video.id %> <%= video.title %><br>
+  <% end %>
+  <br>
+  <%= f.submit %>
+<% end %>
