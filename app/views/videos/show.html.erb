@@ -1,7 +1,20 @@
 <h2><%= @video.title %></h2>
 <h4><%= @video.author.name %></h4>
-<p>link: <%= link_to 'Video', @video.url %></p>
-
-<%= link_to 'Delete', @video, method: 'delete' %>
-<br>
+<iframe width='600' height='400' src='<%= @video.url %>'></iframe><br>
+<div class='new-comment'>
+  <h3>Comments</h3>
+  <%= text_field_tag :content %>
+  <button class='add-comments'>Add comment</button>
+</div>
+<div class='comments' id='<%= @video.id %>'>
+  <% @comments.each do |comment| %>
+    <div class="sub-comment" id='<%= comment.id %>'>
+      <p><%= comment.content %></p>
+      <p>Posted by <%= User.find(comment.user_id).name %></p>
+      <input class="sub-comment" type="text"><br>
+      <button class="add-sub-comments">Add comment</button>
+    </div>
+  <% end %>
+</div>
+<%= link_to 'Delete', @video, method: 'delete' %><br>
 <%= link_to 'All videos', '/videos' %>

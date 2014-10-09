@@ -5,7 +5,10 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-  resources :videos
+  resources :videos do
+    resources :comments, :only => [:create]
+  end
+  resources :comments, :only => [:update, :destroy]
   resources :playlists
 
   root 'videos#index'

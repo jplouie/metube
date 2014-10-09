@@ -5,6 +5,7 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
   has_many :videos, foreign_key: 'author_id'
   has_many :playlists
+  has_many :comments
 
   validates :email, presence: true, uniqueness: true
 end

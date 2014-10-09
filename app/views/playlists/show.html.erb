@@ -4,5 +4,7 @@
     <li><%= link_to video.title, "videos/#{video.id}" %></li>
   <% end %>
 </ol>
+<button class='add-comments'>Add comment</button>
+<div class='comments'></div>
 <%= link_to 'Edit', "/playlists/#{@playlist.id}/edit" %><br>
 <%= link_to 'All Playlists', '/playlists' %>

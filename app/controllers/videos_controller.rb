@@ -6,6 +6,7 @@ class VideosController < ApplicationController
 
   def show
     @video = Video.find(params[:id])
+    @comments = Comment.where(commentable_id: @video.id, commentable_type: 'Video')
   end
 
   def new
