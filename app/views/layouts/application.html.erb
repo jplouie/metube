@@ -6,12 +6,16 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
+<body class='<%= params[:controller] %>' value='<%= current_user.name %>'>
+
+<%= render 'shared/top_bar' %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
-<%= yield %>
+<div class='main-content'>
+  <%= yield %>
+</div>
 
 </body>
 </html>

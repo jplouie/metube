@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require foundation
+//= require handlebars-v2.0.0
 //= require_tree .
 
 $(function(){ $(document).foundation(); });

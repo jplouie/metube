@@ -8,8 +8,14 @@ Rails.application.routes.draw do
   resources :videos do
     resources :comments, :only => [:create]
   end
+
+  resources :playlists do
+    resources :comments, :only => [:create]
+  end
+
   resources :comments, :only => [:update, :destroy]
-  resources :playlists
+
+  get '/search' => 'search#index'
 
   root 'videos#index'
 

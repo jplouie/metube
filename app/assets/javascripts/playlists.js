@@ -1,10 +1,10 @@
 $(document).ready(function(){
-  if($('body.videos').length){
+  if($('body.playlists').length){
     $('.add-comments').on('click', function(){
       var id = $('.comments').attr('id');
       var content = $('#content').val();
-      $.post('/videos/' + id + '/comments',
-        {content: content, video_id: id},
+      $.post('/playlists/' + id + '/comments',
+        {content: content, playlist_id: id},
         function(data){
           $('#content').val('');
           $('.comments').append('<div class="sub-comment"> \

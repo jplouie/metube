@@ -30,6 +30,9 @@ gem 'rspec-rails'
 gem 'pry-byebug'
 gem 'devise'
 gem 'foundation-rails'
+gem 'figaro'
+gem 'rest-client'
+gem 'json'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

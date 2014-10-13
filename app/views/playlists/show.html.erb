@@ -1,10 +1,23 @@
 <h2><%= @playlist.name %></h2>
 <ol>
   <% @list.each do |video| %>
-    <li><%= link_to video.title, "videos/#{video.id}" %></li>
+    <li><%= link_to video.title, "/videos/#{video.id}" %></li>
   <% end %>
 </ol>
-<button class='add-comments'>Add comment</button>
-<div class='comments'></div>
+<div class='new-comment'>
+  <h3>Comments</h3>
+  <%= text_field_tag :content %>
+  <button class='add-comments'>Add comment</button>
+</div>
+<div class='comments' id='<%= @playlist.id %>'>
+  <% @comments.each do |comment| %>
+    <div class="sub-comment" id='<%= comment.id %>'>
+      <p><%= comment.content %></p>
+      <p>Posted by <%= User.find(comment.user_id).name %></p>
+      <input class="sub-comment" type="text"><br>
+      <button class="add-sub-comments">Add comment</button>
+    </div>
+  <% end %>
+</div>
 <%= link_to 'Edit', "/playlists/#{@playlist.id}/edit" %><br>
 <%= link_to 'All Playlists', '/playlists' %>

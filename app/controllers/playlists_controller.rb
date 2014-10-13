@@ -6,6 +6,7 @@ class PlaylistsController < ApplicationController
 
   def show
     @playlist = Playlist.find(params[:id])
+    @comments = Comment.where(commentable_id: @playlist.id, commentable_type: 'Playlist')
     @list = List.where(playlist_id: params[:id])
     @list = @list.map do |video|
       Video.find(video.video_id)
